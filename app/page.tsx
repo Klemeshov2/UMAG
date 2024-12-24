@@ -20,9 +20,8 @@ const ArticleCard = ({ title, description, text, createAt, updateAt }: Article) 
 
 export default async function Home() {
   const data = (await fetch(`${process.env.API_URL}/api/articles`, {
-    cache: 'force-cache',
     next: {
-      revalidate: 200 // 1 hour
+      revalidate: 200
     }
   }).then((res) => res.json())) as Article[];
 
