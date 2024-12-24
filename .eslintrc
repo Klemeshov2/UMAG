@@ -21,7 +21,7 @@
   ],
   "rules": {
     "@typescript-eslint/consistent-type-definitions": [
-      "error",
+      "off",
       "type"
     ]
   }
