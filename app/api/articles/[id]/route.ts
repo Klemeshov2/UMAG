@@ -33,6 +33,7 @@ export const PUT = async (req: NextRequest, { params }: { params: { id: string }
       },
       data: body
     });
+
     return NextResponse.json(article);
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 });
