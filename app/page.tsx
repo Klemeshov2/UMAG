@@ -1,4 +1,5 @@
 import { Article } from '@prisma/client';
+import { prisma } from '@/prisma/prisma-client';
 
 const ArticleCard = ({ title, description, text, createAt, updateAt }: Article) => {
   return (
@@ -19,11 +20,7 @@ const ArticleCard = ({ title, description, text, createAt, updateAt }: Article) 
 };
 
 export default async function Home() {
-  const data = (await fetch(`${process.env.API_URL}/api/articles`, {
-    next: {
-      revalidate: 200
-    }
-  }).then((res) => res.json())) as Article[];
+  const data = await prisma.article.findMany();
 
   return (
     <div className="flex flex-col gap-5 mw-screen min-h-screen p-6">
